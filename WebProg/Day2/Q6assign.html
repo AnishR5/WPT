@@ -1,0 +1,116 @@
+<html>
+    <body>
+        <h2>Internet Usage Survey</h2>
+        <p>
+            This survey is being coducted to help identify the Internet usage patterns of our customers. <br>
+            Please take a few moments to complete and submit this short form.thank you for your cooperation
+        </p>
+        <table cellpadding="25">
+            <tr>
+                <td>What type of internet connection dou you have?(Select One)</td>
+                <td>
+                    <select name="intcon" id="intcon">
+                        <option value="test">--Select one----</option>
+                        <option value="Dial-up">Dial-up</option>
+                        <option value="DSL">DSL</option>
+                        <option value="High speed Cable">High speed Cable</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+            <td>What type of Computer dou you use most at home?</td>
+            <td>
+                <input type="radio" name="comp" id="desktop">
+                <label for="desktop">Desktop</label>
+                <input type="radio" name="comp" id="laptop">
+                <label for="laptop">Laptop</label>
+            </td>
+            </tr>
+            <tr>
+                <td>How would you describe your main reason for using the internert?</td>
+                <td>
+                    <input type="checkbox" name="use1" id="u1">
+                    <label for="u1">To do work-related activities</label> <br>
+                    <input type="checkbox" name="use2" id="u2">
+                    <label for="u2">To do school related activities</label> <br>
+                    <input type="checkbox" name="use3"  id="u3">
+                    <label for="u3">For entertainment purpose</label> <br>
+                    <input type="checkbox" name="use4" id="u4">
+                    <label for="u4">Other Activites</label>
+                </td>
+            </tr>
+        </table>
+
+      <table>
+        <tr>
+            <td>
+                <form >
+                    <fieldset>
+                        <legend>Types of sites visited</legend>
+                        <label >What types of web sites do you access most often?<br>Chcek all that apply</label> <br>
+                        <input type="checkbox" name="wb1" id="wb1" value="Self Improvement">
+                        <label for="wb1">Self Improvement</label><br>
+                        <input type="checkbox" name="wb2" id="wb2" value="Entertainment">
+                        <label for="wb2">Entertainment</label> <br>
+                        <input type="checkbox" name="wb3" id="wb3" value="News">
+                        <label for="wb3">News and Sports</label> <br>
+                        <input type="checkbox" name="wb4" id="wb4" value="Reference">
+                        <label for="wb4">Reference</label> <br>
+                        <input type="checkbox" name="wb5" id="wb5" value="Email">
+                        <label for="wb5">Email</label> 
+                    </fieldset>
+                </form>
+            </td>
+            <td>
+                <form >
+                    <fieldset>
+                        <legend>Time Spent using Internet</legend>
+                        <label > During an average week,how long do you spend online?</label> <br>
+                        <input type="radio" name="time" id="a" value="0-3">
+                        <label for="a">0-3 Hours</label> <br>
+                        <input type="radio" name="time" id="b" value="4-6">
+                        <label for="b">4-6 Hours</label> <br>
+                        <input type="radio" name="time" id="c" value="7-10">
+                        <label for="c">7-10 Hours</label> <br>
+                        <input type="radio" name="time" id="d" value="11-14">
+                        <label for="d">11-14 Hours</label> <br>
+                        <input type="radio" name="time" id="e" value="15+">
+                        <label for="e">15+ Hours</label> <br>
+                    </fieldset>
+                </form>
+            </td>
+        </tr>
+      </table>
+      <p>Please comment on your opinions concerning Interner privacy and saftey</p>
+      <textarea name="comment" id="cmt" cols="60" rows="5" id="cmt"></textarea>
+<br> <br>
+      <table cellspacing="30px" align="center">
+        <tr>
+            <td><label for="fname">First Name:</label>
+                <input type="text" name="fname" id="fname" required>
+            </td>
+            <td>
+                <label for="lname">Last Name:</label>
+                <input type="text" name="lname" id="lname" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="age">Age:</label>
+                <input type="text" name="age" id="age">
+            </td>
+            <td>
+                <label for="zip">Zip Code: </label>
+                <input type="text" name="zip" id="zip">
+            </td>
+        </tr>
+      </table>
+      <div align="center">
+        <input type="submit" name="sb" id="sub" value="submit">
+        <input type="reset" name="reset" id="reset">
+
+      </div>
+
+    </body>
+</html>
