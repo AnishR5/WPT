@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: rgb(24, 121, 196);
+                color: aliceblue;
+            }
+
+            /* #table{
+                position: relative;
+                left: 35%;
+            } */
+            #fs{
+                position: relative;
+                width: 500px;
+                left: 30%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <fieldset id="fs">
+            <legend>Registration Details</legend>
+            <form action="">
+
+                <table id="table">
+                    <tr>
+                        <td><label for="">University:   </label></td>
+                        <td><input type="text" name="" id=""> <br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Institute:  </label> </td>
+                        <td><input type="text" name="" id=""> <br></td>
+                    </tr>
+                    <tr>
+                        <td> <label for="branch">Branch:  </label></td>
+                        <td><select name="branch" id="branch">
+                            <option value="test">--select--</option>
+                            <option value="CSE">Computer Science</option>
+                            <option value="IT">Information Tech</option>
+                            <option value="Ece">Electrical/Electronics</option>
+                            <option value="Mech">Mechanical</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="deg">Degree:  </label></td>
+                        <td><select name="deg" id="deg" >
+                            <option value="test">--select--</option>
+                            <option value="BE">BE</option>
+                            <option value="ME">ME</option></select>
+                            <input type="radio" name="status" id="per"> 
+                            <label for="per">Pursuing</label>
+                            <input type="radio" name="status" id="completed">
+                            <label for="status">Completed</label> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Average CPI: </label></td>
+                        <td>
+                            <input type="number" name="cg" id="cg" step="0.1" min="5.0" max="10.0"> Upto 
+                            <input type="number" id="sem" min="1" max="8" step="1"> 
+                            <label for="sem">Th Semester</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="exp">Experience:</label>
+                        </td>
+                        <td><input type="number" name="" id="exp" step="1" min="0"> Years</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="web">Your Website Or Blog: </label>
+                        </td>
+                        <td>
+                            <input type="url" name="" id="web" value="http://">
+                        </td>
+                    </tr>
+
+                </table>
+
+                
+                
+                
+                
+
+                
+            </form>
+        </fieldset>
+    </body>
+</html>
