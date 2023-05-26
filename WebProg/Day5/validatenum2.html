@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <style>
+            span{
+                color: red;
+                font-size: 15px;
+            }
+        </style>
+
+        <script>
+            function validatedata(numid,sp)
+            {
+                var a=document.getElementById(numid).value 
+                if(a==="" || isNaN(a))
+                {
+                    document.getElementById(sp).innerHTML="Enter Numeric value "
+                    return false
+                }
+                document.getElementById(sp).innerHTML=""
+                return true
+            }
+
+
+            function validatenums()
+            {
+                var flag1=validatedata("num1","sp1")
+                var flag2=validatedata("num2","sp2")
+                if(flag1 && flag2)
+                {
+                    add()
+                }
+                else
+                {
+
+                }
+            }
+
+            function add()
+            {
+                var a= document.getElementById("num1").value
+                var b=document.getElementById("num2").value
+                var sum= parseInt(a)+parseInt(b);
+
+                document.getElementById("mydiv").innerHTML="Addition: "+ sum
+                document.getElementById("res").value=sum
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <form>
+            <label for="num1">Num1:</label>
+            <input type="text" name="" id="num1"><span>*</span> <span id="sp1"></span>  <br> 
+            <label for="num2">Num2:</label>
+            <input type="text" name="" id="num2"> <span>*</span> <span id="sp2"></span> <br>
+            <label for="res">Result:</label>
+            <input type="text" name="" id="res" disabled> <br>
+            <input type="button" name="" id="submit" value="Add nums" onclick="validatenums()">
+
+        </form>
+
+        <div id="mydiv"></div>
+    </body>
+</html>
