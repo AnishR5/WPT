@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <script>
+            function inc(){
+                if(typeof(Storage)!==undefined)
+                {
+                    if(localStorage.count===undefined)
+                    {
+                        localStorage.count=1
+                    }
+                    else{
+                        localStorage.count++;
+                    }
+                    document.getElementById("mydiv").innerHTML="count:"+localStorage.count+"times"
+                }
+                else{
+                    document.getElementById("mydiv").innerHTML="Browser does not support Local storage"
+                }
+            }
+
+            function decrement()
+            {
+                if(typeof(Storage)!==undefined)
+                {
+                    if(localStorage.count===undefined || localStorage.count<=0)
+                    {
+                        localStorage.count=0;
+                    }
+                    else{
+                        localStorage.count--;
+                    }
+                    document.getElementById("mydiv").innerHTML="count: "+localStorage.count+" times"
+                }
+                else{
+                    document.getElementById("mydiv").innerHTML="Browser does not support Local storage"
+                }
+            }
+
+            function remove()
+            {
+                if(typeof(Storage)!== undefined)
+                {
+                    if(localStorage.count!==undefined)
+                    {
+                        localStorage.removeItem("count");
+                    }
+                }
+                else
+                {
+                    document.getElementById("mydiv").innerHTML="Browser does not support Local storage"
+                }
+
+                // if(typeof(Storage)!== undefined){
+                //     if(localStorage.count!==undefined){
+                //     //to remove a particular key
+                //         localStorage.removeItem("count");
+                //         //to delete all the keys
+                //     //localStorage.clear()
+                //     }
+                //     }else{
+                //         document.getElementById("mydiv").innerHTML="web storage is not supported"  
+                //     }
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <form >
+            <input type="button" name="" id="" value="Increment" onclick="inc()">
+            <input type="button" name="" id="" value="Decrement" onclick="decrement()">
+            <input type="button" name="" id="" value="reset" onclick="remove()">
+        </form>
+        <div id="mydiv">
+
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+            body{
+                color: antiquewhite;
+                background-color: black;
+            }
+        </style>
+        <script>
+            var nm;
+            var data;
+            function validatename()
+            {
+                nm=document.getElementById("name").value
+                if(nm==="" || (nm.trim().length===0))
+                {
+                    document.getElementById("errname").innerHTML="Name cannot be blank or only spaces"
+                    return false;
+                }
+                else
+                {
+                    document.getElementById("errname").innerHTML="";
+                    return true ;
+                }
+            }
+
+            function validatedegree()
+            {
+                var arr=document.getElementsByName("degree")
+                for(var i=0;i<arr.length;i++)
+                {
+                    if(arr[i].checked)
+                    {
+                        data=arr[i].value;
+                        document.getElementById("errdegree").innerHTML=" " 
+                        return true;
+                    }
+                    document.getElementById("errdegree").innerHTML="Select minimum 1 degree"
+                    return false;
+                }
+            }
+
+            function validatedata()
+            {
+               var flag1=validatename()
+                var flag2=validatedegree()
+                if(flag1 && flag2)
+                {
+                    document.getElementById("mydiv").innerHTML="Name: "+nm+"<br>Degree: "+data
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" > <span id="errname"> </span> <br>
+        <label for="degree">Degree: </label>
+        <input type="radio" name="degree" id="BE" value="BE">
+        <label for="BE">BE</label>
+        <input type="radio" name="degree" id="Btech" value="Btech">
+        <label for="Btech">Btech</label>
+        <input type="radio" name="degree" id="Mtech" value="Mtech">
+        <label for="Mtech">Mtech</label> <span id="errdegree"></span>
+        <br>
+        <input type="button" name="data" id="data" value="Show Data" onclick="validatedata()">
+
+        <div id="mydiv"></div>
+    </body>
+</html>

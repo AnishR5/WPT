@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <script>
+            function handler(){
+                var x=document.getElementById("pass")
+                if(x.type==="password")
+                    x.type='text'
+                else
+                    x.type="password"
+            }
+
+
+            // function showpass()
+            // {
+            //     var x=document.getElementById("pass");
+            //     if(x.type === "password" )
+            //     {
+            //         alert("jh")
+            //         x.type="text";
+            //     }
+            //     else{
+            //         x.type="password"
+            //     }
+            // }
+        </script>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+            fieldset{
+                border: 2px solid blue;
+                border-radius: 10px;
+            }
+            legend{
+                background-color: blue;
+            }
+            
+            #sp1{
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Name and address</legend>
+            <form action="">
+                <table>
+                    <tr>
+                        <td><label for="ssn">SSN: </label></td>
+                        <td><input type="text" name="ssn" id="ssn"> <span id="sp1">Fill in name and address</span></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fname">Full name:</label></td>
+                        <td><input type="text" name="fname" id="fname"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="srtandnum">Street and number:</label></td>
+                        <td><input type="text" name="srtandnum" id="srtandnum"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pin">Postal code:</label></td>
+                        <td><input type="text" name="pin" id="pin"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="city">City:</label></td>
+                        <td><input type="text" name="city" id="city"></td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+        <br> <br>
+        <fieldset>
+            <legend>Username and Password</legend>
+            <form >
+                <table>
+                    <tr>
+                        <td><label for="uname">Username: </label></td>
+                        <td><input type="text" name="uname" id="uname"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pass">Password: </label></td>
+                        <td>
+                            <!-- <input type="password" name="pswd" id="pass" value="hbcah"> -->
+                            <input type="password" name="pass" id="pass">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <!-- <input type="checkbox" name="showpass" id="showpass" onclick="showpass()">  -->
+                            <!-- <label for="showpass">show password</label> -->
+                       <input type="checkbox" onclick="handler()">
+                       <label for="">Show password</label>
+                       
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+        <br>
+        <input type="button" name="butt" id="butt" value="Register" >
+    </body>
+</html>

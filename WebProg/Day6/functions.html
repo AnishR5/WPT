@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: aliceblue;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            // (function(){
+            //     console.log("Inside self calling function ")
+            // })()
+
+            // function f1(x)
+            // {
+            //     if(x<10)
+            //     {
+            //         console.log(x)
+            //     }
+               
+            //     f1(x-1);
+            // }
+
+            // f1(5)
+
+
+            function calculate(x,y)
+            {
+                //closure function
+                var factorial=function(num)
+                {
+                    f=1;
+                    for(var i=1;i<=num;i++)
+                    {
+                        f=f*i;
+                    }
+                    return f;
+                }
+
+
+                var permutation=factorial(x)/factorial(x-y);
+                console.log("Permutation:"+ permutation)
+
+
+                
+            }
+
+            calculate(5,2);
+
+            var f3=()=>{
+                alert("inside f3")
+            }
+
+            f3();
+
+
+        </script>
+    </body>
+</html>

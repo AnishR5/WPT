@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <style>
+            body{
+                color: antiquewhite;
+                background-color: black;
+            }
+
+            #str{
+                width: 30%;
+            }
+        </style>
+        <script>
+            function changestr()
+            {
+                var sel=document.getElementById("strfun")
+              //  alert(sel)
+                var pos=sel.selectedIndex
+               // alert(pos)
+                var val=sel.options[pos].value;
+             //  alert(val)
+                var str=document.getElementById("str").value
+               // alert(str)
+
+               switch(val)
+               {
+                case "upper":
+                    result=" Result: " +str.toUpperCase();
+                    break;
+
+                case "lower":
+                    result=" Result: "+str.toLowerCase();
+                    break;
+
+                case "charAt":
+                    var at=prompt("Enter position");
+                    result=" Result: "+str.charAt(at);
+                    break;
+                
+                case "slice": 
+                    var start=prompt("Enter start position")
+                    var end=prompt("Enter end position")
+                    result=" Result: "+str.slice(start,end);
+                    break;
+                
+                case "concat": 
+                    var str2=prompt("Enter a string to concat")
+                    result=" Result: "+str.concat(" "+str2);
+                    break;
+                
+                case "match": 
+                    var str3=prompt("Enter pattern")
+                    var pattern=new RegExp(str3,"gi")
+                    //alert(pattern);
+                    result=" Result: "+str.match(pattern);
+                    break;
+
+                case "search":
+                    var pat=prompt("Enter pattern")
+                    var pattern1=new RegExp(pat,"gi")
+                    result="Result: "+str.search(pattern1)
+                    break;
+
+                case "replace" : 
+               // Str.replace(pattern,new string)
+                var pat=prompt("Enter pattern")
+                var pattern1=new RegExp(pat,"gi")
+                var str2=prompt("Enter new string")
+                result="Result: "+str.replace(pattern1,str2)
+                break;
+
+                case "split": 
+                    var deli=prompt("Enter delimter")
+                    result="Result: "+str.split(deli);
+                    console.log(str.split(deli));
+                    break;
+                
+                case "indexof": 
+                    var s=prompt("Enter string")
+                    result="Result: "+str.indexOf(s);
+                    break;
+
+                case "includes": 
+                var s=prompt("Enter string")
+                result="Result: "+str.includes(s)
+                break;
+
+               }//switch
+               document.getElementById("mydiv").innerHTML=result
+            }
+        </script>
+    </head>
+    <body>
+        <label for="str">Enter String: </label>
+        <input type="text" name="str" id="str">
+        <select name="strfun" id="strfun">
+        <option value="upper">Uppercase</option>
+        <option value="lower">Lowercase</option>
+        <option value="charAt">CharAt</option>
+        <option value="slice">Slice</option>
+        <option value="concat">concat</option>
+            <option value="match">match</option>
+            <option value="search">search</option>
+            <option value="replace">replace</option>
+            <option value="split">split</option>
+            <option value="indexof">indexOf</option>
+            <option value="includes">includes</option>
+        </select>
+
+        <input type="button" name="button" id="button" value="Display result" onclick="changestr()" >
+
+        <div id="mydiv"></div>
+
+    </body>
+</html>

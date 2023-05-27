@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script>
+            
+            function evennum()
+            {
+                a=parseInt(document.getElementById("num").value) 
+                
+                while(a>0)
+                {
+                    if(a%2==0)
+                    {
+                        document.getElementById("mydiv").innerHTML=a+" "
+                        a--;
+                    }
+                    a=a-1;
+                }
+                
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <label for="num">Enter num</label>
+        <input type="text" name="num" id="num"> <br>
+        <input type="button" name="enternum" id="enternum" value="submit num" onclick="evennum()">
+        <div id="mydiv"></div>
+
+
+    </body>
+</html>
