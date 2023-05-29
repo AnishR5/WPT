@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <style>
+            span{
+                color: red;
+            }
+        </style>
+        <script>
+
+            function display(res){
+                document.getElementById('mydiv').innerHTML=res
+                document.getElementById('ans').value=res
+            }
+            function calculate(num1,num2){
+                var sel=document.getElementById('operation');
+                console.log(sel)
+                var pos=sel.selectedIndex
+                var choice=sel.options[pos].value
+
+
+                switch(choice){
+                    case '+':
+                            result=num1+num2
+                            return result;
+                        break;
+
+                    case '-':
+                        result=num1-num2
+                        return result;
+                        break;
+
+                    case '/':
+                        result=num1/num2
+                        return result;
+                        break;
+                        
+                    case '%':
+                        result=num1%num2
+                        return result;
+                        break; 
+                        
+                    case '*':
+                        result=num1*num2
+                        return result;
+                        break;
+
+                }
+            }
+
+            function validatenumber(numid,errmsg){
+                var a=document.getElementById(numid).value
+                if(a==="" || isNaN(a) || a.trim().length===0){
+                    document.getElementById(errmsg).innerHTML="give valid data"
+                    return false
+                }
+                else{
+                    document.getElementById(errmsg).innerHTML=""
+                    return true
+                }
+            }
+            function validatedata(){
+                flag1=validatenumber('n1','errmsg1')
+                flag2=validatenumber('n2','errmsg2')
+                num1=parseInt(document.getElementById('n1').value)
+                num2=parseInt(document.getElementById('n2').value)
+
+                if(flag1 && flag2)
+                {
+                    var res= calculate(num1,num2)
+                    display(res)
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+        number1:
+        <input type="text" id="n1" name="num1"><span>*</span><span id="errmsg1"></span><br>
+        number2:
+        <input type="text" id="n2" name="num2"><span>*</span><span id="errmsg2"></span><br>
+        operations:
+        <select id="operation">
+            <option value="test">---select option----</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+            <option value="*">*</option>
+        </select>
+        <br>
+        answer:<input type="text" id="ans" name="ans" disabled><br>
+
+        <button type="button" name="btn" id="btn" onclick="validatedata()">answer</button>
+        <div id="mydiv"></div>
+    </body>
+</html>

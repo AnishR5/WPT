@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <style>
+            span{
+                color: red;
+            }
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+            fieldset{
+                width: 40%;
+                margin-left: 350px;
+                margin-top: 100px;
+            }
+        </style>
+        <script>
+            function calc(num1,num2)
+            {
+                var sel=document.getElementById("operation")
+                console.log(sel)
+
+                var pos=sel.selectedIndex
+
+                var val=sel.options[pos].value;
+
+                switch(val)
+                {
+                    case "+": 
+                        result="Addition= "+(num1+num2)
+                        break
+                    case "-" :
+                        result="Substraction="+(num1-num2)
+                        break;
+                    case "*": 
+                        result="Multiplication= "+ (num1*num2)
+                        break;
+
+                    case "/": 
+                        result="Division="+ (num1/num2)
+                        break;
+                }
+                document.getElementById("mydiv").innerHTML=result
+
+            }
+            
+
+            function validatenum(numid,ermgs)
+            {
+                var a=document.getElementById(numid).value 
+                if(a==="" || isNaN(a))
+                {
+                    document.getElementById(ermgs).innerHTML="Enter valid data"
+                    return false;
+                }
+                else
+                {
+                    document.getElementById(ermgs).innerHTML=""
+                    return true
+                }
+
+            }
+
+            function oper()
+            {
+                var flag1=validatenum("num1","er1")
+                var flag2=validatenum("num2","er2")
+                var a=parseInt(document.getElementById("num1").value)
+                    console.log(a)
+                    var b=parseInt(document.getElementById("num2").value) 
+                    console.log(b)
+
+                if(flag1 && flag2)
+                {
+                    
+                    //console.log("in if")
+                    calc(a,b);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Calculator</legend>
+            <table>
+                <tr>
+                    <td>
+                        Num1:
+                    </td>
+                    <td>
+                        <input type="text" name="" id="num1"> <span class="req">*</span> <span id="er1"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Num2:</td>
+                    <td><input type="text" name="" id="num2"> <span class="req">*</span> <span id="er2"></span></td>
+                </tr>
+                <tr>
+                    <td>Operation: </td>
+                    <td><select name="op" id="operation">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" name="" id="but" value="Perform operation" onclick="oper()"></td>
+                </tr>
+            </table>
+            <div id="mydiv"></div>
+        </fieldset>
+        
+       
+    </body>
+</html>

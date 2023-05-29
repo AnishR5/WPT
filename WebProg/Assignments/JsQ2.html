@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+            span{
+                color: red;
+            }
+            fieldset{
+                width: 40%;
+                margin-left: 350px;
+                margin-top: 50px;
+            }
+        </style>
+        <script>
+
+            function display()
+            {
+                
+                var st=document.getElementById("str").value 
+                console.log(st)
+                var num=parseInt(document.getElementById("num").value)  
+                console.log(num)
+                for(var i=1;i<=num;i++)
+                {
+                    document.getElementById("mydiv").innerHTML+= i+". "+ st+ "<br>"
+                }
+            }
+
+            function validatenum(numid,er)
+            {
+                var a=document.getElementById(numid).value 
+                if(a==="" || isNaN(a) || a.trim().length===0)
+                {
+                    document.getElementById(er).innerHTML="Enter valid input"
+                    return false;
+                }
+                else
+                {
+                    document.getElementById(er).innerHTML=""
+                    return true;
+                }
+            }
+
+            function validatestr(strid,er)
+            {
+                var st=document.getElementById(strid).value 
+                if(st==="" || st.trim().length===0)
+                {
+                    document.getElementById(er).innerHTML="Enter valid Input"
+                    return false;
+                }
+                else
+                {
+                    document.getElementById(er).innerHTML=""
+                    return true;
+                }
+            }
+
+            function validatedata()
+            {
+                var flag1=validatenum("num","erfrq")
+                console.log("flag1"+flag1)
+                var flag2=validatestr("str","erstr")
+                console.log("flag2"+flag2)
+                if(flag1 && flag2)
+                {
+                    console.log("inside if")
+                    display()
+                }
+            }   
+        </script>
+    </head>
+    <body>
+
+        <fieldset>
+            <legend>Display name</legend>
+            <table>
+                <tr>
+                    <td>
+                        Enter String:
+                    </td>
+                    <td><input type="text" name="" id="str"> <span>*</span> <span id="erstr"></span> </td>
+                </tr>
+                <tr>
+                    <td>Enter Freq:</td>
+                    <td> <input type="number" name="" id="num"><span>*</span>  <span id="erfrq"></span><br></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" name="" id="but" value="Enter" onclick="validatedata()"></td>
+                </tr>
+            </table>
+            <div id="mydiv"></div>        
+
+        </fieldset>
+
+       
+    </body>
+</html>

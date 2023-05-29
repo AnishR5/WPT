@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+            span{
+                color: red;
+            }
+            fieldset{
+                width: 40%;
+                margin-left: 350px;
+                margin-top: 50px;
+            }
+        </style>
+         <script>
+            function greatest()
+            {
+                
+                var a= parseInt(document.getElementById("num1").value) 
+                var b= parseInt(document.getElementById("num2").value) 
+                var c= parseInt(document.getElementById("num3").value)
+                if(a>b && a>c)
+                {
+                    document.getElementById("mydiv").innerHTML="Greatest num: "+a
+                } 
+                if(b>a && b>c)
+                {
+                    document.getElementById("mydiv").innerHTML="Greatest num: "+b
+                } 
+                if(c>a && c>b)
+                {
+                    document.getElementById("mydiv").innerHTML="Greatest num: "+c
+                } 
+
+               
+            }
+
+            function validatenum(numid,ermgs)
+            {
+                var a=document.getElementById(numid).value
+                if(a==="" || isNaN(a) || a.trim().length===0)
+                {
+                    console.log("jnjnds")
+                    document.getElementById(ermgs).innerHTML="Enter valid number"
+                    return false;
+                }
+                else
+                {
+                    document.getElementById(ermgs).innerHTML=""
+                    return true;
+                }
+            }
+
+
+            function validatedata()
+            {
+                var flag1=validatenum("num1","er1")  
+                var flag2=validatenum("num2","er2")  
+                var flag3=validatenum("num3","er3") 
+
+                
+                if(flag1 && flag2 && flag3)
+                {
+                    greatest();
+                }  
+            
+            }
+
+         </script>
+    </head>
+    <body>
+        
+
+        <fieldset>
+            <legend>Greatest number among 3</legend>
+            <label for="num1">Num1:</label>
+        <input type="text" name="num1" id="num1"><span>*</span> <span id="er1"></span> <br>
+        <label for="num2">Num2:</label>
+        <input type="text" name="num2" id="num2"><span>*</span> <span id="er2"></span> <br>
+        <label for="num3">Num3:</label>
+        <input type="text" name="num3" id="num3"><span>*</span> <span id="er3"></span> <br>
+        <input type="button" name="" id="but" value="Submit numbers" onclick="validatedata()">
+        <div id="mydiv">
+
+        </div>
+        </fieldset>
+        
+        
+    </body>
+</html>

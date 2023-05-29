@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+            span{
+                color: red;
+            }
+            fieldset{
+                width: 40%;
+                margin-left: 350px;
+                margin-top: 50px;
+            }
+            </style>
+        <script>
+
+
+            function table()
+            {
+                var num=document.getElementById("num").value 
+                var cnt=1;
+                while(cnt<=10)
+                {
+                    document.getElementById("mydiv").innerHTML+=  num +"*"+cnt    +"="+ num*cnt + "<br>"
+                    cnt++;
+                }
+            }
+
+            function validatenum(numid,er)
+            {
+                var a=document.getElementById(numid).value 
+                if(a==="" || isNaN(a))
+                {
+                    document.getElementById(er).innerHTML="Enter valid input"
+                    return false;
+                }
+                else
+                {
+                    document.getElementById(er).innerHTML=""
+                    return true;
+                }
+            }
+
+            function validatedata()
+            {
+                var flag=validatenum("num","err")
+
+                if(flag)
+                {
+                    table();
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <fieldset>
+            <legend>Table</legend>
+            <div>
+                Enter number: <input type="text" name="" id="num"> <span>*</span> <span id="err"></span>
+                <br>
+                <input type="button" name="" id="btn" value="Generate table" onclick="validatedata()">
+            </div>
+            <div id="mydiv"></div>
+
+        </fieldset>
+
+        
+    </body>
+</html>

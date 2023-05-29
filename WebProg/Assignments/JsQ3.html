@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script>
+
+            function evennum()
+            {
+                var a= parseInt(document.getElementById("num").value )
+                while(a>=1)
+                {
+                    if(a%2===0)
+                    {
+                        document.getElementById("mydiv").innerHTML+= a+ ", "
+                        a--;
+                    }
+                    else
+                    {
+                        a--;
+                    }
+                }
+            }
+
+            function validatenum(numid,er)
+            {
+                var a= parseInt(document.getElementById(numid).value) 
+
+                if(a==="" || isNaN(a) || a.trim().length===0)
+                {
+                    document.getElementById(er).innerHTML="Invalid input"
+                    return false;
+                }
+                else
+                {
+                    document.getElementById(er).innerHTML=""
+                    return true;
+                }
+
+                
+            }
+
+            function validatedata()
+            {
+                var flag =validatenum("num","ermgs")
+                console.log(flag)
+                if(flag)
+                {
+                    evennum();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Even no.s</legend>
+            <table>
+                <tr>
+                    <td>Enter number:</td>
+                    <td><input type="number" name="" id="num"> <span>*</span> <span id="ermgs"></span></td>
+                </tr>
+                <tr>
+                <td><input type="button" name="" id="btn" value="Enter" onclick="validatedata()"></td>
+                </tr>
+            </table>
+            <div id="mydiv"></div>
+        </fieldset>
+       
+    </body>
+</html>
