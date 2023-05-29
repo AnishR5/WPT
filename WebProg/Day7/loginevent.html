@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script>
+            function validatedata()
+            {
+                var pas=document.getElementById("password").value
+               // alert(pas)
+                var cpas=document.getElementById("cpassword").value
+               // alert(cpas)
+                if(pas===cpas)
+                {
+                    document.getElementById("mydiv").innerHTML=""
+                    return true;
+                }
+                else
+                {
+                    document.getElementById("mydiv").innerHTML="Password mismatch"
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="validateuser" method="get" onsubmit="return validatedata()">
+            <table>
+                <tr>
+                    <td>username</td>
+                    <td><input type="text" name="" id="uname" placeholder="enter username" required></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="text" name="" id="password" placeholder="enter password" required></td>
+                </tr>
+                <tr>
+                    <td>Confirm password</td>
+                    <td><input type="text" name="" id="cpassword" placeholder="Confim password" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="" id="submit" value="Login user">
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="reset" name="" id="reset" value="Cancel">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div id="mydiv"></div>
+    </body>
+</html>

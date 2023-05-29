@@ -1,0 +1,66 @@
+<html>
+    <body>
+        <h2 align="center">Employee Details</h2>
+        <table border="1" style="background-color: pink;" align="center">
+            <form method="post" action="mailto:anishrachcha@gmail.com">
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" name="name" id="name" value="name" required></td>
+                </tr>
+                <tr>
+                    <th>Employee Code</th>
+                    <td><input type="text" name="empcode" id="empcode" value="empcode" required></td>
+                </tr>
+                <tr>
+                    <td > Department</td>
+                    <td><input type="radio" name="dept_name" id="admin" value="admin">
+                    <label for="admin">ADMIN</label><br>
+                    <input type="radio" name="dept_name" id="hr" value="HR">
+                    <label for="hr">HR</label><br>
+                    <input type="radio" name="dept_name" id="tech" value="technical">
+                    <label for="tech">Technical</label><br>
+                    <input type="radio" name="dept_name" id="acc" value="Accounts">
+                    <label for="acc">Accounts</label><br>
+                </tr>
+                <tr>
+                    <th>Date of Joining</th>
+                    <td><input type="date" name="jd" id="jd" value="jd" required></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><textarea name="txtarea" id="tx" cols="20" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Training Programmes Attended</td>
+                    <td><input type="checkbox" name="t1" id="th1" value="th1">
+                    <label for="th1">Html/Dhtml</label><br>
+                    <input type="checkbox" name="t2" id="th2" value="th2">
+                    <label for="th2">Java</label><br>
+                    <input type="checkbox" name="t3" id="th3" value="th3">
+                    <label for="th3">Client/Server</label><br>
+                    <input type="checkbox" name="t4" id="th4" value="th4">
+                    <label for="th4">.Net</label>
+                </td>
+                </tr>
+                <tr>
+                    <td>Training Programmes needs to attend</td>
+                    <td><select name="prgms" id="prgms">
+                    <option value="test">---select one----</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Jstruts">Jstruts</option>
+                    </select>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>Send the information at: </td>
+                    <td><input type="submit" name="mail" id="mail" value="anishrachcha@gmail.com">
+                    </td>
+                </tr>
+            </form>
+            
+
+
+        </table>
+    </body>
+</html>

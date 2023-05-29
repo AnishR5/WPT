@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <script>
+            var person=function(id,name,mob)
+            {
+                this.eid=id;
+                this.name=name
+                this.mobile=mob
+            }
+
+            var Employee=function(dept,desg)
+            {
+                this.dept=dept;
+                this.desg=desg;
+            }
+
+            p1=new person(1,"vaibhav","programmer")
+            e1=new Employee("HR","Analyst")
+            p1.mobile=4567
+            p1.email="sjdhfj@sdj"
+            p2=new person(1,"Ashish","analyst")
+            //object for loop
+            for(var property in p1)
+            {
+                console.log(property+"  "+p1[property])
+            }
+
+            e1.__proto__=p1;
+            for(var property in e1)
+            {
+                if(e1.hasOwnProperty(property))
+                {
+                    console.log("own prop  "+e1[property])
+                }
+                else
+                {
+                    console.log("inherited prop  "+e1[property])
+                }
+            }
+
+
+        </script>
+    </body>
+</html>
