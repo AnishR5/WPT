@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <style> body{
+            background-color: black;
+            color: antiquewhite;
+        }</style>
+        <script>
+            var arr=[]
+            var str=""
+            var cnt=-1;
+            function displaylist()
+            {
+                str="<ul>"
+                for(var i=0;i<arr.length;i++)
+                {
+                    str+="<li>"+arr[i]
+                }
+                str+="</ul>"
+                document.getElementById("mydiv").innerHTML=str;
+            }
+
+            function addname()
+            {
+                var nm=document.getElementById("name").value 
+                cnt++;
+               arr.push(nm);
+               
+               console.log("add "+cnt)
+              console.log(arr)
+              for(var i=0; i<arr.length;i++)
+              {
+                str+=arr[i]+","
+              }
+              displaylist();
+
+              document.getElementById("name").value=""
+              document.getElementById("name").focus() 
+                //document.getElementById("mydiv").innerHTML=
+            }
+
+            // function delname()
+            // {
+            //     var nm=document.getElementById("name").value 
+
+            //     for(var i=0;i<arr.length;i++)
+            //     {
+            //         if(arr[i]===nm)
+            //         {
+            //             arr.splice(i,1);
+            //         }
+            //     }
+
+            //     displaylist()
+            // }
+            function delname()
+            {
+                
+                        arr.splice(cnt,1);
+                        cnt--;
+                        console.log("sub"+cnt)
+                         displaylist()
+            }
+
+        </script>
+    </head>
+    <body>
+        Name: <input type="text" name="" id="name"> 
+        <input type="button" name="" id="btn1" value="Add name" onclick="addname()">  
+        <input type="button" name="" id="btn2" value="Delete name" onclick="delname()">
+
+        <div id="mydiv">
+
+        </div>
+    </body>
+</html>

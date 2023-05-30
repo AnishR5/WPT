@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <style> body{
+            background-color: black;
+            color: antiquewhite;
+        }</style>
+        <script>
+              ob={
+            empid:1,
+            ename:"kishor",
+            dept:{deptno:1,dname:'Admin'},
+            hobbies:["reading","biking","trekking"],
+            experience:[{name:'igate', years:5},
+            {name:'techM',years:4},
+			],
+            desg:"Manager"
+            
+         }
+         console.log(ob.hobbies[1]);
+         console.log(ob["hobbies"][1])
+         console.log(ob.dept.dname)
+         console.log(ob.experience[1])
+        </script>
+    </head>
+</html>

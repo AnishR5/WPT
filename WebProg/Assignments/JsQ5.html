@@ -31,10 +31,11 @@
             function validatenum(numid,er)
             {
                 var a=document.getElementById(numid).value 
-                if(a==="" || isNaN(a))
+                if(a==="" || isNaN(a) || a.trim().length===0)
                 {
                     document.getElementById(er).innerHTML="Enter valid input"
                     return false;
+                    document.getElementById("mydiv").innerHTML=""
                 }
                 else
                 {

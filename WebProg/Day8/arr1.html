@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style> body{
+            background-color: black;
+            color: antiquewhite;
+        }</style>
+        <script>
+            var str="<ul>"
+            function addname()
+            {
+                var nm=document.getElementById("name").value 
+               // console.log(nm)
+               str+="<li> "+nm
+                document.getElementById("mydiv").innerHTML=str
+            }
+
+            
+
+        </script>
+    </head>
+    <body>
+        Name: <input type="text" name="" id="name"> 
+        <input type="button" name="" id="btn1" value="Add name" onclick="addname()">  
+    
+
+        <div id="mydiv">
+
+        </div>
+    </body>
+</html>

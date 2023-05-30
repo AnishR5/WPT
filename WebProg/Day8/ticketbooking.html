@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+        </style>
+        <script>    
+            arr=[];
+            function displaydata()
+            {
+                document.getElementById("mydiv").innerHTML= "Booked seats: "+arr;
+            }
+
+            function getseatno(ev)
+            {
+                if(ev.target.checked)
+                {
+                    arr.push(ev.target.value)
+                    console.log(arr);
+                }
+                else
+                {
+
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <input type="checkbox" name="seat" id="1" value="1" onchange="getseatno(event)"> 1
+        <input type="checkbox" name="seat" id="2" value="2" onchange="getseatno(event)"> 2
+        <input type="checkbox" name="seat" id="3" value="3" onchange="getseatno(event)"> 3
+        <input type="checkbox" name="seat" id="4" value="4" onchange="getseatno(event)"> 4
+        <input type="checkbox" name="seat" id="5" value="5" onchange="getseatno(event)"> 5 <br>
+        <input type="checkbox" name="seat" id="6" value="6" onchange="getseatno(event)">6
+        <input type="checkbox" name="seat" id="7" value="7" onchange="getseatno(event)">7
+        <input type="checkbox" name="seat" id="8" value="8" onchange="getseatno(event)">8
+        <input type="checkbox" name="seat" id="9" value="9" onchange="getseatno(event)">9
+        <input type="checkbox" name="seat" id="10" value="10" onchange="getseatno(event)">10 <br>
+        <input type="button" name="" id="btn" value="Book" onclick="displaydata()">
+        <div id="mydiv"></div>
+    </body>
+</html>
