@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style> body{
+            background-color: black;
+            color: antiquewhite;
+        }</style>
+        <script>
+            arr=[{pid:1,pname:'chair',qty:34,price:3456},
+           {pid:2,pname:'table',qty:35,price:3100},
+           {pid:3,pname:'shelf',qty:30,price:3355},
+           {pid:4,pname:'stool',qty:10,price:3222}]
+            
+           function displaytable()
+           {
+                str="<table border=2><tr><td>Pid</td><td>Name</td><td>Quantity</td><td>Price</td></tr>"
+                    for(var ob of arr)
+                    {
+                        str+=`<tr><td>${ob.pid}</td><td>${ob.pname}</td><td>${ob.qty}</td><td>${ob.price}</td>`
+                    }
+                    str+="</table>"
+
+                    document.getElementById("mydiv").innerHTML=str
+                    
+           }
+
+
+          
+
+           function addprd()
+           {
+                var id=parseInt(document.getElementById("pid").value) 
+                var name=document.getElementById("pname").value
+                console.log(name)
+                var qt=parseInt(document.getElementById("qty").value)
+                var prc=parseFloat(document.getElementById("price").value)
+                var ob={pid:id,pname:name,qty:qt,price:prc};
+                arr.push(ob);
+                console.log(arr)
+                displaytable()
+           }
+
+
+       </script>
+
+    </head>
+    <body>
+        Product id: <input type="text" name="" id="pid"> <br>
+        Product name: <input type="text" name="" id="pname"> <br>
+        Product quantity: <input type="text" name="" id="qty"> <br>
+        Product price: <input type="text" name="" id="price"> <br>
+        <input type="button" name="" id="addprd" value="Add product" onclick="addprd()">
+        &nbsp;
+        <input type="button" name="" id="del" value="Delete product">
+        &nbsp;
+        <input type="button" name="" id="upd" value="Update product">
+
+        <div id="mydiv"></div>
+    </body>
+        
+    
+</html>
