@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <style>
+            #div1{
+                border: 2px solid red;
+                background-color: rgb(62, 95, 19);
+                width: 50%;
+            }
+
+            #div2{
+                border: 2px solid rebeccapurple;
+                background-color: coral;
+                color: black;
+                width: 50%;
+            }
+
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+
+            .div2{
+                display: none;
+            }
+
+            .did{
+                display: block;
+            }
+        </style>
+        <script>
+            function showcourses()
+            {
+                var div2=document.getElementById("div2")
+                div2.classList.add("did")
+                div2.classList.remove("div2")
+                
+            }
+
+            function showselected()
+            {
+                var arr=document.getElementsByName("courses")
+                for(var op of arr)
+                {
+                    if(op.checked)
+                    {
+                        var sel=op.value;
+                        var nm=document.getElementById("name").value
+                        var ad=document.getElementById("address").value
+
+                        str="Name: "+nm+"<br>Address: "+ad+ "<br>Course selected: "+ sel
+                        document.getElementById("div3").innerHTML=str
+                        break;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            Name: <input type="text" name="" id="name"> <br>
+            Address: <input type="text" name="" id="address"> <br>
+            <input type="checkbox" name="" id="show" onclick="showcourses()"> <label for="show">Show courses</label>
+        </div>
+        <br> 
+        <div id="div2" class="div2">
+            <input type="radio" name="courses" id="java" value="java"> <label for="java">Java</label>
+            <input type="radio" name="courses" id="c++" value="c++"> <label for="c++">C++</label>
+            <input type="radio" name="courses" id="dbms" value="dbms"> <label for="dbms">dbms</label> <br>
+            <input type="button" name="courses" id="courses" value="Show selected" onclick="showselected()"><br>
+        </div>
+        <div id="div3"></div>
+    </body>
+</html>

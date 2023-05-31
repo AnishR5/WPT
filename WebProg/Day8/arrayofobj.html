@@ -1,61 +1,160 @@
 <html>
     <head>
-        <style> body{
-            background-color: black;
-            color: antiquewhite;
-        }</style>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+
+            .myclass
+            {
+                display: none;
+            }
+            
+            .myc
+            {
+                display: block;
+            }
+
+            #mydiv2{
+                border: 2px solid rgb(9, 140, 228);
+                background-color: hotpink;
+                color: rgb(0, 0, 0);
+                width:max-content;
+            }
+
+        </style>
         <script>
             arr=[{pid:1,pname:'chair',qty:34,price:3456},
-           {pid:2,pname:'table',qty:35,price:3100},
-           {pid:3,pname:'shelf',qty:30,price:3355},
-           {pid:4,pname:'stool',qty:10,price:3222}]
-            
-           function displaytable()
-           {
-                str="<table border=2><tr><td>Pid</td><td>Name</td><td>Quantity</td><td>Price</td></tr>"
-                    for(var ob of arr)
+            {pid:2,pname:'table',qty:35,price:3100},
+            {pid:3,pname:'shelf',qty:30,price:3355},
+            {pid:4,pname:'stool',qty:10,price:3222}]
+
+            function displaydata(pid)
+            {
+                var pos=arr.findIndex(a=>a.pid===pid)
+                var div2=document.getElementById("mydiv2")
+                console.log(div2)
+                div2.classList.add("myc")
+                div2.classList.remove("myclass")
+                str="" ;
+                if(pos!==-1)
+                {
+                    str=` id: ${arr[pos].pid} <br> Name: ${arr[pos].pname} <br> Quantity: ${arr[pos].qty} <br> Price: ${arr[pos].price} `
+                    div2.innerHTML=str
+                }
+                else
+                div2.innerHTML="Not found"
+
+
+                
+            }
+
+            function displaytable(a=arr){
+                str="<table border=2px ><tr><td>Pid</td><td>Product name</td><td>Quantity</td><td>Price</td><td>Display</td></tr>"
+                    for(var ob of a)
                     {
-                        str+=`<tr><td>${ob.pid}</td><td>${ob.pname}</td><td>${ob.qty}</td><td>${ob.price}</td>`
+                        str+=`<tr><td>${ob.pid}</td><td>${ob.pname}</td><td>${ob.qty}</td><td>${ob.price}</td><td> <input type="button" name="" id="displaydata" value="display" onclick="displaydata(${ob.pid})"></td></tr>`
                     }
                     str+="</table>"
-
                     document.getElementById("mydiv").innerHTML=str
-                    
-           }
+            }
 
+            function clearform(){
+                document.getElementById("pid").value="";
+                document.getElementById("pname").value=""; 
+                document.getElementById("qty").value=""; 
+                document.getElementById("price").value=""; 
 
-          
+            }
 
-           function addprd()
-           {
-                var id=parseInt(document.getElementById("pid").value) 
-                var name=document.getElementById("pname").value
-                console.log(name)
-                var qt=parseInt(document.getElementById("qty").value)
-                var prc=parseFloat(document.getElementById("price").value)
-                var ob={pid:id,pname:name,qty:qt,price:prc};
-                arr.push(ob);
-                console.log(arr)
-                displaytable()
-           }
+            function addnewproduct()
+            {
+                var pd=document.getElementById("pid").value 
+                var nm=document.getElementById("pname").value 
+                var qt=document.getElementById("qty").value 
+                var pr=document.getElementById("price").value 
+                var ob={pid:pd,pname:nm,qty:qt,price:pr}
+               // console.log(obj)
+               arr.push(ob);
+               console.log(arr)
+               displaytable();
+               clearform();
+            }
 
+            function deleteproduct()
+            {
+                var pd=document.getElementById("pid").value
+                // for(var i=0;i<arr.length;i++)
+                // {
+                //     if(arr[i].pid===pd)
+                //     {
+                //         arr.splice(i,1);
+                //         break;
+                //     }
+                // }
+                // displaytable();
 
-       </script>
+                var pos=arr.findIndex(a=>a.pid===pd);
+                if(pos!=-1)
+                {
+                    arr.splice(pos,1)
+                }
+                displaytable();
+                clearform();
+            }
 
+            function updateproduct()
+            {
+                var pd=parseInt(document.getElementById("pid").value)
+                console.log(pd)
+                var pos=arr.findIndex(a=>a.pid===pd)
+                console.log(pos)
+                if(pos!==-1)
+                {
+                    var nqty=parseInt(prompt("Enter new quantity"))
+                    var nprice=parseFloat(prompt("Enter new price"))
+                    arr[pos].qty=nqty;
+                    arr[pos].price=nprice;
+                    displaytable();
+                clearform();
+                   
+                }
+             }
+
+             function filterdata(event)
+             {
+                console.log(event.key)
+                console.log(event.which)
+                if(event.which===13)
+                {
+                    var searchtxt=document.getElementById("search").value
+                    var arr2=arr.filter(a=>a.pname.includes(searchtxt));
+                    console.log(arr2)
+                    displaytable(arr2);
+                }
+             }
+
+        </script>
     </head>
-    <body>
-        Product id: <input type="text" name="" id="pid"> <br>
-        Product name: <input type="text" name="" id="pname"> <br>
-        Product quantity: <input type="text" name="" id="qty"> <br>
-        Product price: <input type="text" name="" id="price"> <br>
-        <input type="button" name="" id="addprd" value="Add product" onclick="addprd()">
-        &nbsp;
-        <input type="button" name="" id="del" value="Delete product">
-        &nbsp;
-        <input type="button" name="" id="upd" value="Update product">
-
-        <div id="mydiv"></div>
+    <body onload="displaytable()">
+        <form >
+            Product id : <input type="text" name="pid" id="pid" value=""><br>
+            Product name: <input type="text" name="pname" id="pname" value=""><br>
+            Product quantity : <input type="text" name="qty" id="qty" value=""><br>
+            Product price: <input type="text" name="price" id="price" value=""><br>
+            <button type="button" name="btn" id="add" value="add" onclick="addnewproduct()">add new product</button>
+            <button type="button" name="btn" id="del" value="del" onclick="deleteproduct()">delete product</button>
+            <button type="button" name="btn" id="btn" value="update" onclick="updateproduct()">update product</button> <br>
+           
+           
+        </form>
+        Search: <input type="text" name="" id="search" onkeydown="filterdata(event)">
+        <div id="mydiv">
+            
+        </div>
+        <div id="mydiv2" class="myclass">
+           
+        </div>
     </body>
-        
-    
 </html>

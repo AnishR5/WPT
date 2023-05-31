@@ -1,0 +1,1 @@
+Sampling by writing into file by write function
