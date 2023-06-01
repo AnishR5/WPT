@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style>
+       <script>
+
+        function power()
+        {
+            var x= parseInt(document.getElementById("num").value);
+            var y=parseInt(document.getElementById("pow").value); 
+            var power=1;
+            for(var i=1;i<=y;i++)
+            {
+                power=power*x;
+            }
+            document.getElementById("res").value=power;
+        }
+
+        function validatenum(numid,err)
+        {
+            var n=document.getElementById(numid).value ;
+            if(n==="" || isNaN(n) || n.trim().length===0)
+            {
+                document.getElementById(err).innerHTML="Enter valid data";
+                return false;
+            }
+            else{
+                document.getElementById(err).innerHTML="";
+                return true;
+            }
+        }
+
+        function validatedata()
+        {   
+            var flag1=validatenum("num","err1");
+            var flag2=validatenum("pow","err2");
+
+            if(flag1 && flag2)
+            {
+                power();
+            }
+
+        }
+       </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Power x^y</legend>
+            <table>
+                <tr>
+                    <td>Enter number:</td>
+                    <td><input type="text" name="" id="num"> <span id="err1"></span></td>
+                </tr>
+                <tr>
+                    <td>Enter power:</td>
+                    <td><input type="text" name="" id="pow"> <span id="err2"></span></td>
+                </tr>
+                <tr>
+                    <td>Result: </td>
+                    <td><input type="text" name="" id="res" value="" disabled></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" name="" id="btn" value="Calculate Power" onclick="validatedata()"></td>
+                </tr>
+                
+            </table>
+        </fieldset>
+    </body>
+</html>

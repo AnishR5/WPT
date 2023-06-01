@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <style>
+             body{
+                background-color: black;
+                color: antiquewhite;
+            }
+            fieldset{
+                width: 50%;
+                margin-left: 350px;
+                margin-top: 50px;
+            }
+        </style>
+        <script>
+
+            function sumofdigits(a){
+                var temp=a
+                var sum=0;
+                while(temp>1)
+                {
+                    var rem=temp%10;
+                    sum=sum+rem;
+                    temp=Math.floor(temp/10);
+                    
+                }
+                document.getElementById("res").value=sum;
+
+            }
+
+            function validatedata()
+            {
+                var num=parseInt(document.getElementById("num").value)
+
+                if(num==="" || isNaN(num))
+                {
+                    document.getElementById("err").innerHTML="Enter valid data"
+                }
+                else{
+                    var temp=num
+                var digits=0;
+                while(temp>1)
+                {
+                    temp=temp/10;
+                    digits++;
+                }  
+                if(digits===5)
+                {
+                    sumofdigits(num);
+                    document.getElementById("err").innerHTML=""
+                }
+                else{
+                    document.getElementById("err").innerHTML="Enter 5 digit number"
+                }
+
+                }
+
+                
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Sum of digits</legend>
+            <table>
+                <tr>
+                    <td> Enter number(5 digits num):</td>
+                    <td><input type="text" name="" id="num"> <span id="err"></span></td>
+                </tr>
+                <tr>
+                    <td> Result:</td>
+                    <td> <input type="text" name="" id="res" value="" disabled> <br></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> <input type="button" name="" id="btn" value="Sum" onclick="validatedata()"> </td>
+                </tr>
+        </fieldset>
+        
+    </body>
+</html>

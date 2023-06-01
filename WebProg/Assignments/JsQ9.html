@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style>
+
+       <script>
+
+
+        function power(x,y)
+        {
+            var pow=1;
+            for(var i=1;i<=y;i++)
+            {
+                pow=pow*x;
+            }
+            return pow;
+        }
+
+
+        function calci()
+        {
+            var p=parseInt(document.getElementById("p").value)
+            var r=parseInt(document.getElementById("r").value)
+            var n=parseInt(document.getElementById("n").value)
+
+            var ci=((p*power((1+r/100),n))-p);
+            
+            document.getElementById("res").innerHTML=ci
+        }
+
+        function validatenum(numid,err)
+        {
+            var n=document.getElementById(numid).value ;
+            if(n==="" || isNaN(n) || n.trim().length===0)
+            {
+                document.getElementById(err).innerHTML="Enter valid data";
+                return false;
+            }
+            else{
+                document.getElementById(err).innerHTML="";
+                return true;
+            }
+        }
+
+        function validatedata()
+        {
+            var flag1=validatenum("p","err1");
+            var flag2=validatenum("r","err2");
+            var flag3=validatenum("n","err3");
+            if(flag1 && flag2 && flag3)
+            {
+                calci();
+            }
+        }
+       </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Compound Interest</legend>
+            <table>
+                <tr>
+                    <td>Principal Amount:</td>
+                    <td><input type="text" name="" id="p"> <span id="err1"></span></td>
+                </tr>
+                <tr>
+                    <td>Rate of interest:</td>
+                    <td><input type="text" name="" id="r"><span id="err2"></span></td>
+                </tr>
+                <tr>
+                    <td>Time period(yrs)</td>
+                    <td><input type="text" name="" id="n"><span id="err3"></span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" name="" id="btn" value="Calculate CI" onclick="validatedata()"></td>
+                </tr>
+                <tr>
+                    <td>Compound Interest =</td>
+                    <td><div id="res"></div></td>
+                </tr>
+            </table>
+        </fieldset>
+    </body>
+</html>
