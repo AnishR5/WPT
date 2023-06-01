@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+            fieldset{
+                width:40% ;
+                margin-left: 250px;
+            }
+        </style>
+        <script>
+            function validatepass()
+            {
+                var pas=document.getElementById("passwd").value 
+                var cpas=document.getElementById("cpass").value
+                if(pas===cpas)
+                {
+                    return true;
+                }
+                else{
+                   return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Login page</legend>
+            
+            <table>
+                <form action="/registeruser" method="get">
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" id="name"></td>
+                </tr>
+                <tr>
+                    <td>userName:</td>
+                    <td><input type="text" name="uname" id="uname"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="text" name="passwd" id="passwd"></td>
+                </tr>
+                <tr>
+                    <td>Confirm Pass</td>
+                    <td><input type="text" name="cpass" id="cpass"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="login" id="" value="Register" onclick="validatepass()"></td>
+                </tr>
+            </form>
+            </table>
+           
+             
+           
+        </fieldset>
+        
+    </body>
+</html>

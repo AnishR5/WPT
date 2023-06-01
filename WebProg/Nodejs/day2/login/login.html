@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+            fieldset{
+                width:40% ;
+                margin-left: 250px;
+            }
+            a{
+                border: 2px solid red;
+                background-color: rgb(255, 255, 255);
+                margin-left: 250px; 
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Login page</legend>
+            <table>
+                <form action="/validateuser" method="get">
+                <tr>
+                    <td>userName:</td>
+                    <td><input type="text" name="uname" id="uname"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="text" name="passwd" id="passwd"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="login" id="" value="login"></td>
+                </tr>
+            </form>
+            </table>  
+         
+        </fieldset>
+        <a href="/register">Sign up</a>
+        
+    </body>
+</html>

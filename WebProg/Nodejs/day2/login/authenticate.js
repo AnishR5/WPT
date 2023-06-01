@@ -1,0 +1,19 @@
+userdata={"user1":"user123","user2":"user2123","admin":"admin123"}
+
+exports.validateuser=(uname,passwd)=>{
+    var p=userdata[uname];
+    return p===passwd;
+}
+
+exports.adduser=(uname,passwd)=>{
+    var p=userdata[uname];
+    if(p!==undefined)
+    {
+        return false;
+    }
+    else{
+        userdata[uname]=passwd;
+        console.log(userdata)
+        return true;
+    }
+}
