@@ -32,11 +32,6 @@ const server=http.createServer(function(req,resp){
 
             }
             resp.end();
-           
-
-
-
-            
     }
 
 })
