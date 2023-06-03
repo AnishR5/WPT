@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: antiquewhite;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Product Management system</h1>
+        </header>
+        <table border="2">
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            <tbody>
+                <%for(var i=0;i<prdata.length;i++) {%>
+                    <tr>
+                        <td><%=prdata[i].prdid%></td>
+                        <td><%=prdata[i].pname%></td>
+                        <td><%=prdata[i].price%></td>
+                        <td>
+                            <a href="/edit/<%=prdata[i].prdid%>">Edit</a>
+                            <a href="/delete/<%=prdata[i].prdid%>">Delete</a>
+                        </td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <form action="/displayaddform">
+            <input type="submit" name="btn" id="btn" value="Add Product">
+        </form>
+    </body>
+</html>
