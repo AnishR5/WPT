@@ -48,7 +48,7 @@ app.use("/operation",(req,resp)=>{
     else if(req.query.btn=="Sum")
     {
         var n1= parseInt(req.query.num1) ;
-        var ans=f.sum(n1);
+        var ans=f.sum(...n1).split(",").map(Number);
         resp.send(`<h3>Num1:${n1}, Sum:${ans}</h3>`);
     }
 })
