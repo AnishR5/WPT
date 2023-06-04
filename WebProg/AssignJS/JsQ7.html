@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style> 
+        <script>
+            function calmin(){
+                var nums=document.getElementById("nums").value;
+              //  console.log(nums);
+                var arr=nums.split(",");
+                //console.log(arr)
+                for(var i=0;i<arr.length;i++)
+                {
+                    for(var j=i+1;j<arr.length;j++)
+                    {
+                        if(arr[i]>arr[j])
+                        {
+                            var temp=arr[i];
+                            arr[i]=arr[j];
+                            arr[j]=temp;
+                        }
+                    }
+                }
+                document.getElementById("mydiv").innerHTML="Minimum val:  "+arr[0] ;
+            }
+
+
+            function cleardiv()
+            {
+                document.getElementById("mydiv").innerHTML=""
+            }
+
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Minimum Number</legend>
+            Enter number: <input type="text" name="nums" id="nums" placeholder="a,b,c,d,..." onclick="cleardiv()"> <br>
+        <input type="button" name="btn" id="btn" value="Min" onclick="calmin()">
+        <div id="mydiv"></div>
+        </fieldset>
+        
+    </body>
+</html>

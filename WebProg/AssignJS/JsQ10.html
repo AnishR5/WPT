@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style> 
+    </head>
+    <body>
+        <fieldset>
+            <legend>Date and Greetings</legend>
+            <div id="mydiv"></div>
+            <script>
+                var today=new Date();
+                function getcurdate(){
+                    
+
+                    var Months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+                    var Weekday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                    var day=Weekday[today.getDay()] ;
+                    var month=Months[today.getMonth()] ;
+                    var yr=today.getFullYear();
+                    return day+", "+today.getDate()+" "+month+" "+yr ;
+                }
+                function showgreeting(){
+                    var hrs=today.getHours();
+                    if(hrs>6 && hrs<12)
+                    {
+                        return "Good Morning";
+                    }
+                    else if(hrs>=12 && hrs<=17)
+                    {
+                        return "Good Afternoon";
+                    }
+                    else if(hrs>17 && hrs<=20)
+                    {
+                        return "Good Evering";
+                    }
+                    else{
+                        return "Good Night";
+                    }
+                    
+                }
+                function dayleft(){
+                    var cyr=(today).getFullYear();
+                    var enddate=new Date(cyr,12,31);
+                    var daysleft= Math.floor(((enddate-today)/(1000*60*60*24))) ;
+                    return daysleft;
+                }
+
+                document.getElementById("mydiv").innerHTML= "Today is "+getcurdate()+",Welcome, and "+showgreeting() + "<br>Days left to end year: "+dayleft()+" days";
+            </script>
+        </fieldset>
+    </body>
+</html>

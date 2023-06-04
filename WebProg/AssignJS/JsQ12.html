@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style> 
+        <script>
+            function sortnames()
+            {
+                var ip=document.getElementById("names").value ;
+                var tr=ip.trim("")
+                var names=ip.split(",");
+                console.log(names);
+                if(validatenames(names)){
+                    var snames=names.sort((a,b)=>{
+                    a.toLowerCase().localeCompare(b.toLowerCase())
+                    
+                });
+                document.getElementById("mydiv").innerHTML=snames;
+                document.getElementById("err").innerHTML=""
+                }
+                else{
+                    document.getElementById("mydiv").innerHTML="";
+                    document.getElementById("err").innerHTML="Add six names"
+
+                }
+                
+            }
+
+            function validatenames(arr)
+            {
+                if(arr.length!==6)
+                {
+                    return false;
+                }
+                return true;
+            }
+
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Sorting Names</legend>
+            Enter names: <input type="text" name="names" id="names" placeholder="abc,xyz,wxy,..."><span id="err"></span> <br>
+        <input type="button" name="btn" id="btn" value="Sort names" onclick="sortnames()">
+        <div id="mydiv"></div>
+        </fieldset>
+        
+    </body>
+</html>
