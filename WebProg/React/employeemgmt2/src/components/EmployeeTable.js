@@ -6,8 +6,18 @@ class EmployeeTable extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            earr:[...props.arr]
+            earr:[...props.arr],
+            flag:false
         };
+    }
+
+    addData1=(emp)=>{
+        this.props.insertEmp(emp)
+        this.setState({...this.state,flag:false});
+    }
+
+    showform=()=>{
+        this.setState({...this.state,flag:true})
     }
 
     render(){
@@ -30,7 +40,7 @@ class EmployeeTable extends React.Component{
                                 <tr key={emp.empid}>
                                 <td>{emp.empid}</td>
                                 <td>{emp.ename}</td>
-                                <td>{emp.salary}</td>
+                                <td>{emp.sal}</td>
                                 <td><button type="button" class="btn btn-link">Edit</button>
                                 <button type="button" class="btn btn-link">Delete</button>  
                                 </td>
@@ -40,8 +50,10 @@ class EmployeeTable extends React.Component{
                         </tbody>
 
                     </table>
+                    <button type="button" className="btn btn-success" onClick={this.showform}>Add Employee</button>
+                  
                     <div className='col-sm-12 col-md-6'>
-                        <EmployeeForm></EmployeeForm>
+                        {this.state.flag?<EmployeeForm adddata={this.addData1}></EmployeeForm>:""}
                     </div>
 
                     </div>
