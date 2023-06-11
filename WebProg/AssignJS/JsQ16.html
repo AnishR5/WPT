@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+            body{
+             background-color: black;
+             color: antiquewhite;
+         }
+         fieldset{
+             width: 40%;
+             margin-left: 350px;
+             margin-top: 50px;
+         }
+      </style>
+        <script>
+            
+            function searchwebsite(){
+                var websites=["www.google.com","www.msn.com/en-in","www.linkedin.com","www.youtube.com","www.hotstar.com"]
+            
+                var textsearch=document.getElementById("src").value
+                var resultset=document.getElementById("resultset");
+                resultset.innerHTML="";
+
+                var count=0;
+                for(i=0;i<websites.length;i++){
+                    var website=websites[i];
+                    if(website.includes(textsearch)){
+                        var li=document.createElement("li")
+                        li.textContent=website
+                        resultset.appendChild(li);
+                        count++
+                    }
+                }
+                if(count==0){
+                    var li=document.createElement("li")
+                    li.textContent="NO website found with "+textsearch;
+                    resultset.appendChild(li);
+                }
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Search and count</legend>
+            <div>
+                Search:<input type="text" name="src" id="src">
+                <input type="button" name="btn" id="btn" value="Search" onclick="searchwebsite()">
+            </div>
+            <ul id="resultset"></ul>
+        </fieldset>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+              body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+        </style>
+        <script>
+            var rectangle={length:6,breadth:8};
+            var circle={radius:5};
+
+            function areaofrect(a,b){
+                return a*b;
+            }
+            function perimeterofrect(a,b){
+                return 2*(a+b);
+            }
+
+            function areafofcircle(r){
+                return 3.14*r*r;
+            }
+
+            function circum(r){
+                return 2*3.14*r;
+            }
+
+           function display(){
+            var len=parseInt(rectangle.length);
+            var br=parseInt(rectangle.breadth);
+            var arearec=areaofrect(len,br);
+            var perirec=perimeterofrect(len,br)
+
+            var r=parseInt(circle.radius);
+            var arcir=areafofcircle(r)
+            var cir=circum(r).toFixed(2);
+
+
+            document.getElementById("mydiv1").innerHTML="Rctangle: length:"+len+" breadth: "+br+ " Area:"+arearec+" Perimeter:"+perirec;
+            document.getElementById("mydiv2").innerHTML="Circle: Radius:"+r+" Area:"+arcir+" Circumference:"+cir;
+           }
+
+
+        </script>
+    </head>
+    <body onload="display()">
+        <fieldset>
+            <legend>Shapes</legend>
+            <div id="mydiv1"></div>
+            <div id="mydiv2"></div>
+        </fieldset>
+        
+    </body>
+</html>

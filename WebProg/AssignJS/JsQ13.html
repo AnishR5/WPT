@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 1px solid black;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+            }
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+        </style>
+
+    </head>
+    <body>
+        <fieldset>
+            <legend>Employees</legend>
+            <div id="mydiv" onload=""></div>
+        </fieldset>
+        
+        <script>
+            var employees=[
+                {empid:1,ename:"Anish",salary:5000},
+                {empid:2,ename:"Kapil",salary:4500},
+                {empid:3,ename:"xyz",salary:3000},
+                {empid:4,ename:"abc",salary:2000}
+            ]
+
+            function displayemptable(employees){
+                str="<table><tr><th>Id</th><th>Emp Name</th><th>Sal</th></tr>"
+
+                    for(var i=0;i<employees.length;i++){
+                        str+=`<tr>
+                            <td>${employees[i].empid}</td>
+                            <td>${employees[i].ename}</td>
+                            <td>${employees[i].salary}</td>
+                            </tr> `;
+                    }
+                str+="</table>"
+                document.getElementById("mydiv").innerHTML=str;
+
+            }
+        </script>
+        <!-- <script>
+            displayemptable(employees)
+        </script> -->
+        
+    </body>
+</html>

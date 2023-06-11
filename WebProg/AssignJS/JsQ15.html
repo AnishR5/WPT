@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <style>
+            body{
+             background-color: black;
+             color: antiquewhite;
+         }
+         fieldset{
+             width: 40%;
+             margin-left: 350px;
+             margin-top: 50px;
+         }
+      </style>
+        <script>
+            var names=["Anish","Amit","Rutvik","Kapil","Gauri"];
+
+            function reversename(){
+                
+                for(i=0;i<names.length;i++)
+                {
+                    names[i]=names[i].split('').reverse().join('');
+                }
+               
+            }
+          
+
+            function display(names){
+                reversename();
+                names.sort();
+                str=""
+                for(i=0;i<names.length;i++){
+                    str+= names[i]+" "
+                }
+                document.getElementById("mydiv").innerHTML=str;
+            }
+        </script>
+
+    </head>
+    <body onload="display(names)">
+        <fieldset>
+            <legend>Reverse Names is Alphabetically sorted order</legend>
+            <div id="mydiv"> 
+
+            </div>
+        </fieldset>
+        
+        
+    </body>
+</html>
