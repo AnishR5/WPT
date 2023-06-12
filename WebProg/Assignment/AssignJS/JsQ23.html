@@ -1,0 +1,70 @@
+<html>
+    <head>  
+        <style>
+        body{
+           background-color: black;
+           color: antiquewhite;
+       }
+       fieldset{
+           width: 40%;
+           margin-left: 350px;
+           margin-top: 50px;
+       }
+   </style>
+   <script>
+    function validatenum(num)
+    {   
+        if(num==="" || isNaN(num) || num.trim().length===0)
+        {
+            document.getElementById("err1").innerHTML=""
+        }
+    }
+    function validatedata(){
+
+    }
+   </script>
+   </head>
+    <body>
+        <fieldset>
+            <legend>Loan Calculator</legend>
+            <table>
+                <tr>
+                    <th colspan="2">Enter Loan Information</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>1. Amount of Loan</td>
+                    <td><input type="text" name="amt" id="amt"> <span id="err1"></span></td>
+                </tr>
+                <tr>
+                    <td>2. Annual percentage of interest</td>
+                    <td><input type="text" name="interest" id="interest"></td>
+                </tr>
+                <tr>
+                    <td>3. Repayment Period</td>
+                    <td><input type="text" name="period" id="period"> <span id="err2"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" name="compute" id="compute" value="Compute" onclick="validatedata()"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Payment Information</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>4. Your Monthly Pay will be</td>
+                    <td><input type="text" name="mpay" id="mpay" disabled></td>
+                </tr>
+                <tr>
+                    <td>5. Your Total Pay will be</td>
+                    <td><input type="text" name="tpay" id="tpay" disabled></td>
+                </tr>
+                <tr>
+                    <td>6. Total Interest will be</td>
+                    <td><input type="text" name="tintrest" id="tinterest" disabled></td>
+                </tr>
+            </table>
+        </fieldset>
+    </body>
+</html>

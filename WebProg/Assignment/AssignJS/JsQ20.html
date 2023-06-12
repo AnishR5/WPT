@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style>
+       <script>
+        
+
+        function display(){
+            names=["John","Steve","Crisiano","Jordan","Trent"]
+            str="";
+            for(i=0;i<names.length;i++){
+                str+=names[i].toUpperCase()+" "
+            }
+            console.log(str)
+            document.getElementById("res").innerHTML=str;
+        }
+       </script>
+    </head>
+    <body onload="display()">
+        <fieldset>
+            <legend>Names of Group members</legend>
+            <div id="res"></div>
+        </fieldset>
+    </body>
+</html>

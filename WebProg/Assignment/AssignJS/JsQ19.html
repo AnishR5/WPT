@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style>
+       <script>
+
+        function validatenum(num){
+
+            if(num===""|| isNaN(num) || num.trim().length === 0 )
+            {
+                document.getElementById("err").innerHTML="Enter valid data"
+                return false;
+            }
+            if(num>1000){
+                document.getElementById("err").innerHTML="Enter number less than 1000"
+                return false;
+            }
+            return true;
+
+        }
+
+        function sumofdigits(num){
+            var sum=0;
+            var digits=0;
+            var temp=num;
+
+            while(temp>=1){
+                var r=temp%10;
+                sum=sum+r;
+                temp=Math.floor(temp/10)  ;
+
+            }
+            console.log(sum);
+        }
+
+        function validatedata()
+        {
+            var num=document.getElementById("num").value ;
+            var flag=validatenum(num);
+            num=parseInt(num)
+            var sum=sumofdigits(num);
+            document.getElementById("result").innerHTML=" Sum of Digits="+sum
+        }
+       </script>
+    </head>
+    <body>
+        
+        <fieldset>
+            <legend>Sum of digits</legend>
+            Enter an number: <input type="text" name="num" id="num"> <span id="err"></span><br>
+            <input type="button" name="btn" id="btn" value="Submit" onclick="validatedata()">
+            <div id="result"></div>
+        </fieldset>
+    </body>
+
+</html>

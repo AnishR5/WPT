@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style>
+       <script>
+        function operation(){
+
+            var ip=document.getElementById("inp").value;
+
+            var ops=document.getElementsByName("str");
+
+            for(i=0;i<ops.length;i++){
+                if(ops[i].checked){
+                    var selop=ops[i].value;
+                }
+            }
+            var result=""
+            console.log(selop);
+            switch(selop){
+                case "search":
+                    var substr=document.getElementById("sub").value;
+                    result=ip.search(substr);
+                    break;
+
+                case "upper":
+                    result=ip.toUpperCase();
+                    break;
+
+                case "lower":
+                    result=ip.toLowerCase();
+                    break;
+
+                case "trim":
+                    result=ip.trim( );
+                    break;
+
+                case "concat":
+                    var str=document.getElementById("sub").value
+                    result=ip.concat(" ",str);
+                    break;
+
+                case "replace":
+                    var replace=document.getElementById("sub").value;
+                    var replacewith=document.getElementById("replace").value
+                    result=ip.replace(replace,replacewith);
+                    break;
+            }
+            document.getElementById("op").innerHTML=result;
+        }
+       </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>String Manipulation</legend>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            Input String
+                        </td>
+                        <td>
+                            <input type="text" name="inp" id="inp">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Enter Substring </td>
+                        <td><input type="text" name="sub" id="sub"></td>
+                    </tr>
+                    <tr>
+                        <td>Replace with String</td>
+                        <td> <input type="text" name="replace" id="replace"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="radio" name="str" id="op1" value="search"> Search substring in Input String 
+                            <input type="radio" name="str" id="op2" value="upper"> To Upper Case
+                            <input type="radio" name="str" id="op3" value="lower"> To Lower Case
+                            <input type="radio" name="str" id="op4" value="trim"> Trim Spaces 
+                            <input type="radio" name="str" id="op5" value="concat"> Concat
+                            <input type="radio" name="str" id="op6" value="replace"> Replace</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="btn" id="btn" value="Submit" onclick="operation()"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="op"></div>
+        </fieldset>
+    </body>
+    
+</html>

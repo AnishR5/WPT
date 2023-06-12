@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               
+               
+               margin-top: 50px;
+           }
+           span{
+                background-color: rgb(23, 209, 35);
+                color: black;
+                font-weight: bold;
+            }
+       </style>
+        <script>
+            function displaydiv(){
+                var txt=document.getElementById("txt").value.toLowerCase();
+                var divelements=document.getElementsByTagName("div");
+                var pattern= new RegExp(txt,"gi");
+
+                for(i=0;i<divelements.length;i++){
+                    var divcontent= divelements[i].textContent.toLowerCase();
+                    var highlightcolor=divcontent.replace(pattern,function(match){return '<span>'+match+'</span>'});
+                    divelements[i].innerHTML=highlightcolor
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Div's Containing searched text</legend>
+            
+                Search Text: <input type="text" name="txt" id="txt"> &nbsp; &nbsp; <input type="button" name="btn" id="btn" value="Submit" onclick="displaydiv()">
+              <br>
+            <div id="div1">
+                Paragraphs are the building blocks of papers. Many students define paragraphs in terms of length: a paragraph is a group of at least five sentences, a paragraph is half a page long, etc. In reality, though, the unity and coherence of ideas among sentences is what constitutes a paragraph. A paragraph is defined as “a group of sentences or a single sentence that forms a unit” (Lunsford and Connors 116). Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly journalistic styles, a paragraph can be just one sentence long. Ultimately, a paragraph is a sentence or group of sentences that support one main idea. In this handout, we will refer to this as the “controlling idea,” because it controls what happens in the rest of the paragraph.
+            </div> <br>
+            <div id="div2">
+                Before you can begin to determine what the composition of a particular paragraph will be, you must first decide on an argument and a working thesis statement for your paper. What is the most important idea that you are trying to convey to your reader? The information in each paragraph must be related to that idea. In other words, your paragraphs should remind your reader that there is a recurrent relationship between your thesis and the information in each paragraph. A working thesis functions like a seed from which your paper, and your ideas, will grow. The whole process is an organic one—a natural progression from a seed to a full-blown paper where there are direct, familial relationships between all of the ideas in the paper.
+            </div> <br>
+            <div id="div3">
+                From the list above, let’s choose “illustration” as our rhetorical purpose. We’ll walk through a 5-step process for building a paragraph that illustrates a point in an argument. For each step there is an explanation and example. Our example paragraph will be about human misconceptions of piranhas.
+            </div> <br>
+            <div id="div4">
+                The final movement in paragraph development involves tying up the loose ends of the paragraph. At this point, you can remind your reader about the relevance of the information to the larger paper, or you can make a concluding point for this example. You might, however, simply transition to the next paragraph.
+            </div>
+        </fieldset>
+    </body>
+</html>

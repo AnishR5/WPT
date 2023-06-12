@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            body{
+               background-color: black;
+               color: antiquewhite;
+           }
+           fieldset{
+               width: 40%;
+               margin-left: 350px;
+               margin-top: 50px;
+           }
+       </style>
+       <script>
+        
+
+        function display(){
+            names=["John","Steve","Crisiano","Jordan","Trent"]
+            var result=document.getElementById("res");
+            result.innerHTML=""
+            
+            for(i=0;i<names.length;i++){
+                var name=names[i];
+                var li=document.createElement("li")
+                li.textContent=name;
+                result.appendChild(li);
+            }
+            console.log(str)
+            document.getElementById("res").innerHTML=str;
+        }
+       </script>
+    </head>
+    <body onload="display()">
+        <fieldset>
+            <legend>Names of Group members</legend>
+            <ul id="res"></ul>
+        </fieldset>
+    </body>
+    </html>
