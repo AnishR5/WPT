@@ -6,9 +6,16 @@ export default function Topbar() {
     <div className='topbar'>
       <div className="wrapper">
         <div className="left">
-          <a href="#"></a>
+          <a href="#intro" className='logo'>Anish Rachcha</a>
+          <div className="itemContainer">
+            
+          </div>
         </div>
-        <div className="right"></div>
+      
+        <div className="right">
+        
+        </div>
+        
       </div>
       
     </div>
